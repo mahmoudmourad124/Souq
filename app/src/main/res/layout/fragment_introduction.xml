@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/SouqFOrShopping"
+            style="@style/h4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100sp"
+            android:gravity="center"
+            android:text="Come And Buy\n Every Thing\n You Need "
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="@id/ellipse"
+            app:layout_constraintEnd_toEndOf="@id/ellipse"
+            app:layout_constraintStart_toStartOf="@id/ellipse"
+            app:layout_constraintTop_toTopOf="@id/guidelineLeftTexture" />
+
+        <TextView
+            android:id="@+id/souqQaulity"
+            style="@style/h2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="it's now very easy to  reach the best\n qauilty among the best products \non the internet!"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="@id/SouqFOrShopping"
+            app:layout_constraintStart_toStartOf="@id/SouqFOrShopping"
+            app:layout_constraintTop_toBottomOf="@id/SouqFOrShopping"
+            app:layout_goneMarginTop="15dp" />
+
+        <ImageView
+            android:id="@+id/textureLeft"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/texture_left"
+            app:layout_constraintBottom_toBottomOf="@id/guidelineLeftTexture"
+            app:layout_constraintDimensionRatio="1:3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/StartButton"
+            android:layout_width="@dimen/smallButtonWidth"
+            android:layout_height="@dimen/smallButtonHieght"
+            style="@style/blueButtonStyle"
+            app:layout_constraintTop_toBottomOf="@id/souqQaulity"
+            app:layout_constraintStart_toStartOf="@id/souqQaulity"
+            app:layout_constraintEnd_toEndOf="@id/souqQaulity"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="Start" />
+
+        <ImageView
+            android:id="@+id/textureRight"
+
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/texture_right"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ellipse"
+            app:layout_constraintTop_toTopOf="@+id/guidelineLeftTexture" />
+
+        <ImageView
+            android:id="@+id/ellipse"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ellips"
+            app:layout_constraintBottom_toBottomOf="@id/guidelineEclipseBottom"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEclipseRight"
+            app:layout_constraintStart_toStartOf="@id/guidelineEclipseLeft"
+            app:layout_constraintTop_toTopOf="@id/guidelineEclipseTop" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineLeftTexture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.33" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineEclipseLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.15" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineEclipseRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.85" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineEclipseTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.19" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineEclipseBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.52" />
+    </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+    <FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/blury_background" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <br.com.simplepass.loadingbutton.customViews.CircularProgressButton
+                android:id="@+id/buttonLoginLogin"
+                style="@style/blueButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/mediumButtonHeight"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="128dp"
+                android:text="Login"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideRight"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+                app:layout_constraintTop_toBottomOf="@+id/forgetPassword"
+                app:layout_constraintVertical_bias="0.121"
+                app:spinning_bar_color="@color/white" />
+
+            <ImageView
+                android:id="@+id/faceBookLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:src="@drawable/facebook_login"
+                app:layout_constraintStart_toEndOf="@id/guidelineLeft"
+                app:layout_constraintTop_toBottomOf="@id/buttonLoginLogin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Facebook"
+                app:layout_constraintBottom_toBottomOf="@+id/faceBookLogin"
+                app:layout_constraintEnd_toEndOf="@id/faceBookLogin"
+                app:layout_constraintStart_toStartOf="@id/faceBookLogin"
+                app:layout_constraintTop_toTopOf="@id/faceBookLogin" />
+
+            <ImageView
+                android:id="@+id/googleLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:src="@drawable/google_login"
+                app:layout_constraintEnd_toStartOf="@+id/guideRight"
+                app:layout_constraintTop_toBottomOf="@id/buttonLoginLogin" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gmail"
+                app:layout_constraintBottom_toBottomOf="@+id/googleLogin"
+                app:layout_constraintEnd_toEndOf="@id/googleLogin"
+                app:layout_constraintStart_toStartOf="@id/googleLogin"
+                app:layout_constraintTop_toTopOf="@id/googleLogin" />
+
+
+            <EditText
+                android:id="@+id/editTextEmail"
+                style="@style/editText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/editTextHeight"
+                android:layout_marginTop="50dp"
+                android:hint="Eamil"
+                app:layout_constraintEnd_toEndOf="@id/guideRight"
+                app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+                app:layout_constraintTop_toBottomOf="@+id/souqDontHaveanyacount" />
+
+            <EditText
+                android:id="@+id/editTextPassword"
+                style="@style/editText"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/editTextHeight"
+                android:layout_marginTop="10dp"
+                android:hint="Password"
+                app:layout_constraintEnd_toEndOf="@id/guideRight"
+                app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+                app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
+
+            <TextView
+                android:id="@+id/souqDontHaveanyacount"
+                style="@style/h2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Do you have any account ?Register "
+                android:textAlignment="center"
+                app:layout_constraintEnd_toEndOf="@+id/letsLogin"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+                app:layout_constraintTop_toBottomOf="@+id/letsLogin"
+                app:layout_goneMarginTop="15dp" />
+
+            <TextView
+                android:id="@+id/forgetPassword"
+                style="@style/h2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Forget password "
+                android:textAlignment="center"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@+id/letsLogin"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+                app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
+                app:layout_goneMarginTop="15dp" />
+
+            <TextView
+                android:id="@+id/letsLogin"
+                style="@style/h4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="52dp"
+                android:gravity="center"
+                android:text="Let's Login"
+                android:textAlignment="center"
+                app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+                app:layout_constraintTop_toBottomOf="@+id/appName" />
+
+            <TextView
+                android:id="@+id/appName"
+                style="@style/h3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="116dp"
+                android:drawableStart="@drawable/baseline_shopping_cart_24"
+                android:drawablePadding="6dp"
+                android:text="Souq."
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineLeft"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.09" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.91" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </FrameLayout>
