@@ -2,6 +2,7 @@ package com.example.souq.di
 
 import android.app.Application
 import android.content.Context.MODE_PRIVATE
+import com.example.souq.firebase.FireBaseCommon
 import com.example.souq.util.Constants.INTRODUCTION_SP
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -28,5 +29,11 @@ object AppModuel {
     fun provideProductionSP(
         application: Application
     )=application.getSharedPreferences(INTRODUCTION_SP,MODE_PRIVATE)
+    @Provides
+    @Singleton
+    fun providesFirebaseCommon(
+        firebaseAuth: FirebaseAuth,
+        fireStore: FirebaseFirestore
+    )=FireBaseCommon(firebaseAuth,fireStore)
 
 }

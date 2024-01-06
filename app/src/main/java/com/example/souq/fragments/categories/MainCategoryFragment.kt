@@ -10,14 +10,14 @@ import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.navigation.fragment.findNavController
 import com.example.souq.R
 import com.example.souq.adapters.BestDealsAdapter
 import com.example.souq.adapters.BestProductsAdapter
 import com.example.souq.adapters.SpecialProductsAdapter
 import com.example.souq.databinding.FragmentMainCategoryBinding
 import com.example.souq.util.Resource
+import com.example.souq.util.showBottomNavigation
 import com.example.souq.viewmodel.MainCategoryViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
@@ -35,7 +35,7 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         biniding = FragmentMainCategoryBinding.inflate(inflater)
         return biniding.root
     }
@@ -46,6 +46,22 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
         setupSpecialProductsRv()
         setupBestDealsRv()
         setupBestProductsRv()
+
+        specialProductAdapter.onClick={
+            val b=Bundle().apply { putParcelable("product",it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment,b)
+
+        }
+        bestProductsAdapter.onClick={
+            val b=Bundle().apply { putParcelable("product",it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment,b)
+
+        }
+        bestDealsAdapter.onClick={
+            val b=Bundle().apply { putParcelable("product",it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment,b)
+
+        }
 
         lifecycleScope.launchWhenStarted {
             viewModel.specialProduct.collectLatest {
@@ -121,9 +137,11 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
     private fun setupBestProductsRv() {
         bestProductsAdapter = BestProductsAdapter()
         biniding.rvBestProducts.apply {
-            layoutManager =
-                GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
+//            layoutManager =
+//                GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
             adapter = bestProductsAdapter
+
+
         }
 
     }
@@ -131,8 +149,8 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
     private fun setupSpecialProductsRv() {
         specialProductAdapter = SpecialProductsAdapter()
         biniding.rvSpecialProduct.apply {
-            layoutManager =
-                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+//            layoutManager =
+//                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             adapter = specialProductAdapter
         }
     }
@@ -140,8 +158,8 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
     private fun setupBestDealsRv() {
         bestDealsAdapter = BestDealsAdapter()
         biniding.rvBestDeals.apply {
-            layoutManager =
-                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+//            layoutManager =
+//                LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             adapter = bestDealsAdapter
         }
     }
@@ -152,5 +170,10 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
 
     private fun ShowLoading() {
         biniding.mainCategoryProgressBar.visibility = View.VISIBLE
+    }
+
+    override fun onResume() {
+        super.onResume()
+        showBottomNavigation()
     }
 }

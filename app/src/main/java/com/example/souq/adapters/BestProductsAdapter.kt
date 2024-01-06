@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.souq.data.Product
 import com.example.souq.databinding.BestProductRvItemBinding
+import com.example.souq.helper.getProductPrice
 
 class BestProductsAdapter : RecyclerView.Adapter<BestProductsAdapter.BestProductsViewHolder>() {
     inner class BestProductsViewHolder(private val binding: BestProductRvItemBinding) :
@@ -17,15 +18,14 @@ class BestProductsAdapter : RecyclerView.Adapter<BestProductsAdapter.BestProduct
         fun bind(product: Product) {
             binding.apply {
                 Glide.with(itemView).load(product.images[0]).into(imgProduct)
-                product.offerPercentage?.let {
-                    val  remainingPricePercentage=1f-it
-                    val priceAfterOffer= remainingPricePercentage * product.price
-                    tvNewPrice.text="$ ${String.format("%.1f",priceAfterOffer)}"
-                    tvPrice.paintFlags=Paint.STRIKE_THRU_TEXT_FLAG
-                }
-                if (product.offerPercentage==null)
-                    tvNewPrice.visibility=View.INVISIBLE
-                tvPrice.text="$ ${product.price}"
+
+                val priceAfterOffer = product.offerPercentage.getProductPrice(product.price)
+                tvNewPrice.text = "$ ${String.format("%.1f", priceAfterOffer)}"
+                tvPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
+
+                if (product.offerPercentage == null)
+                    tvNewPrice.visibility = View.INVISIBLE
+                tvPrice.text = "$ ${product.price}"
                 tvName.text = product.name
             }
         }
@@ -56,11 +56,16 @@ class BestProductsAdapter : RecyclerView.Adapter<BestProductsAdapter.BestProduct
     }
 
     override fun getItemCount(): Int {
-     return   differ.currentList.size
+        return differ.currentList.size
     }
 
     override fun onBindViewHolder(holder: BestProductsViewHolder, position: Int) {
-        val product=differ.currentList[position]
+        val product = differ.currentList[position]
         holder.bind(product)
+        holder.itemView.setOnClickListener {
+            onClick?.invoke(product)
+        }
     }
+
+    var onClick: ((Product) -> Unit)? = null
 }

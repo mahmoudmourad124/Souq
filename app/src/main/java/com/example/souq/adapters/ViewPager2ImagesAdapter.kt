@@ -18,8 +18,7 @@ class ViewPager2ImagesAdapter :
         }    }
 
 
-
-    private val diiffCallbacks = object : DiffUtil.ItemCallback<String>() {
+    private val diffCallbacks = object : DiffUtil.ItemCallback<String>() {
         override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
             return oldItem == newItem
         }
@@ -29,7 +28,7 @@ class ViewPager2ImagesAdapter :
         }
 
     }
-    val differ = AsyncListDiffer(this, diiffCallbacks)
+    val differ = AsyncListDiffer(this, diffCallbacks)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewpager2Viewholder {
 return Viewpager2Viewholder(

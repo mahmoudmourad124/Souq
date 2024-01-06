@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/shopping_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/adressFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -22,12 +22,22 @@
         <action
             android:id="@+id/action_profileFragment_to_productDetailsFragment"
             app:destination="@id/productDetailsFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_adressFragment"
+            app:destination="@id/adressFragment" />
     </fragment>
     <fragment
         android:id="@+id/cartFragment"
         android:name="com.example.souq.fragments.shopping.CartFragment"
         android:label="fragment_cart"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/action_cartFragment_to_productDetailsFragment"
+            app:destination="@id/productDetailsFragment" />
+        <action
+            android:id="@+id/action_cartFragment_to_billingFragment"
+            app:destination="@id/billingFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.example.souq.fragments.shopping.SearchFragment"
@@ -37,7 +47,7 @@
             android:id="@+id/action_searchFragment_to_productDetailsFragment"
             app:destination="@id/productDetailsFragment" />
     </fragment>
-    <fragment
+        <fragment
         tools:layout="@layout/fragment_product_details"
         android:id="@+id/productDetailsFragment"
         android:name="com.example.souq.fragments.shopping.ProductDetailsFragment"
@@ -45,5 +55,25 @@
         <argument
             android:name="product"
             app:argType="com.example.souq.data.Product" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fargment_address"
+        android:id="@+id/adressFragment"
+        android:name="com.example.souq.fragments.shopping.AddressFragment"
+        android:label="AdressFragment" />
+    <fragment
+        android:id="@+id/billingFragment"
+        tools:layout="@layout/fragment_billing"
+        android:name="com.example.souq.fragments.shopping.BillingFragment"
+        android:label="BillingFragment" >
+        <action
+            android:id="@+id/action_billingFragment_to_adressFragment"
+            app:destination="@id/adressFragment" />
+        <argument
+            android:name="totalPrice"
+            app:argType="float" />
+        <argument
+            android:name="products"
+            app:argType="com.example.souq.data.CartProduct[]" />
     </fragment>
 </navigation>

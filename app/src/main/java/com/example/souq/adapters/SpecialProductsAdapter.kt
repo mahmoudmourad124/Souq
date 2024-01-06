@@ -13,13 +13,13 @@ class SpecialProductsAdapter :
     RecyclerView.Adapter<SpecialProductsAdapter.SpecialProductsViewHolder>() {
 
 
-    inner class SpecialProductsViewHolder(private val binding: SpecialProductRvItemBinding) :
+    inner class SpecialProductsViewHolder( private val binding: SpecialProductRvItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(product: Product) {
             binding.apply {
                 Glide.with(itemView).load(product.images[0]).into(imageSpecialRvItem)
-                tvSpecialProductName.text=product.name
-                tvSpecialProductPrice.text=product.price.toString()
+                tvSpecialProductName.text = product.name
+                tvSpecialProductPrice.text = product.price.toString()
 
             }
 
@@ -56,12 +56,19 @@ class SpecialProductsAdapter :
 
     override fun onBindViewHolder(holder: SpecialProductsViewHolder, position: Int) {
         val product = differ.currentList[position]
-        holder.bind(product)
+        holder. bind(product)
 
+        holder.itemView.setOnClickListener {
+            onClick?.invoke(product)
+         //   onClick?.let { it(product) }
+        }
 
     }
+
     override fun getItemCount(): Int {
         return differ.currentList.size
     }
+
+    var onClick: ((Product) -> Unit)? = null
 
 }

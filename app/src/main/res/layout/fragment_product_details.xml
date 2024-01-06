@@ -10,10 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/viewPagerProductImages"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cardProductImages"
@@ -26,6 +22,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPagerProductImages"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                    />
 
 
             <ImageView
@@ -57,7 +59,17 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvProductPrice"
+                android:id="@+id/tvProductOldPrice"
+                style="@style/h3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3000$"
+                android:textColor="@color/g_gray700" />
+            <View
+                android:layout_width="15dp"
+                android:layout_height="match_parent"/>
+            <TextView
+                android:id="@+id/tvProductNewPrizce"
                 style="@style/h3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -116,7 +128,7 @@
                     android:textColor="@color/black" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvColor"
+                    android:id="@+id/rv_colors"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -138,7 +150,7 @@
                     android:textColor="@color/black" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rvSize"
+                    android:id="@+id/rv_sizes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 
@@ -152,7 +164,7 @@
             android:layout_height="@dimen/mediumButtonHeight"
             android:layout_marginTop="45dp"
             android:layout_marginBottom="15dp"
-            android:text="Login"
+            android:text="Add to cart"
             app:layout_constraintEnd_toEndOf="@+id/linerProductPref"
             app:layout_constraintStart_toStartOf="@+id/linerProductPref"
             app:layout_constraintTop_toBottomOf="@+id/linerProductPref"

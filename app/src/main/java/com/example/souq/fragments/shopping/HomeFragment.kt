@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Lifecycle
 import com.example.souq.adapters.HomeViewPagerAdapter
 import com.example.souq.databinding.FragmentHomeBinding
 import com.example.souq.fragments.categories.AccessoryFragment
@@ -42,7 +41,7 @@ class HomeFragment : Fragment() {
         binding.viewPagerHome.isUserInputEnabled=false
 
         val viewpagerAdapter =
-            HomeViewPagerAdapter(categoriesFragments, childFragmentManager, lifecycle)
+            HomeViewPagerAdapter(categoriesFragments, childFragmentManager, viewLifecycleOwner.lifecycle)
         binding.viewPagerHome.adapter = viewpagerAdapter
         TabLayoutMediator(binding.tabLayout,binding.viewPagerHome){tab,position->
             when (position){
