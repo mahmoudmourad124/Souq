@@ -1,4 +1,4 @@
-package com.example.souq.util
+package com.example.souq.dialog
 
 import android.widget.Button
 import android.widget.EditText

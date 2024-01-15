@@ -15,7 +15,7 @@ import com.example.souq.R
 import com.example.souq.activities.ShoppingActivity
 import com.example.souq.databinding.FragmentLoginBinding
 import com.example.souq.util.Resource
-import com.example.souq.util.setupBottomSheetDialog
+import com.example.souq.dialog.setupBottomSheetDialog
 import com.example.souq.viewmodel.LoginViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint

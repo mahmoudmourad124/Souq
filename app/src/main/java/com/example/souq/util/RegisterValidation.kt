@@ -1,6 +1,6 @@
 package com.example.souq.util
 
-sealed class RegisterValidation(){
+sealed class    RegisterValidation(){
     object Sucess:RegisterValidation()
     data class Failed(val message:String): RegisterValidation()
 }
