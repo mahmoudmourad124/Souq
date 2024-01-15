@@ -39,6 +39,11 @@ class ProfileFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //????
+        binding.notificationLayout.setOnClickListener {
+            Toast.makeText(requireContext(), "Coming soon....", Toast.LENGTH_SHORT).show()
+
+        }
 
         binding.constraintProfile.setOnClickListener {
             findNavController().navigate(R.id.action_profileFragment_to_userAccountFragment)

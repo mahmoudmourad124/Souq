@@ -252,6 +252,7 @@
                 android:background="@drawable/search_box_background">
 
                 <LinearLayout
+                    android:id="@+id/notificationLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">

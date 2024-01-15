@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.souq.adapters.HomeViewPagerAdapter
 import com.example.souq.databinding.FragmentHomeBinding
 import com.example.souq.fragments.categories.AccessoryFragment
@@ -20,8 +21,7 @@ class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentHomeBinding.inflate(inflater)
         return binding.root
@@ -38,19 +38,25 @@ class HomeFragment : Fragment() {
             FurnitureFragment(),
             TableFragment()
         )
-        binding.viewPagerHome.isUserInputEnabled=false
+        //????
+        binding.homeHeader.setOnClickListener {
+            Toast.makeText(requireContext(), "Coming soon....", Toast.LENGTH_SHORT).show()
+        }
+        binding.viewPagerHome.isUserInputEnabled = false
 
-        val viewpagerAdapter =
-            HomeViewPagerAdapter(categoriesFragments, childFragmentManager, viewLifecycleOwner.lifecycle)
+
+        val viewpagerAdapter = HomeViewPagerAdapter(
+            categoriesFragments, childFragmentManager, viewLifecycleOwner.lifecycle
+        )
         binding.viewPagerHome.adapter = viewpagerAdapter
-        TabLayoutMediator(binding.tabLayout,binding.viewPagerHome){tab,position->
-            when (position){
-                0->tab.text="Main"
-                1->tab.text="Accessory"
-                2->tab.text="Chair"
-                3->tab.text="CupBoard"
-                4->tab.text="Furniture"
-                5->tab.text="Table"
+        TabLayoutMediator(binding.tabLayout, binding.viewPagerHome) { tab, position ->
+            when (position) {
+                0 -> tab.text = "Main"
+                1 -> tab.text = "Accessory"
+                2 -> tab.text = "Chair"
+                3 -> tab.text = "CupBoard"
+                4 -> tab.text = "Furniture"
+                5 -> tab.text = "Table"
 
             }
         }.attach()
